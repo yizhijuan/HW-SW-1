@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <span class="wave"> WAVE</span>
+    <span>
+        <form>
+            <input type="text" id="search-box" placeholder="search the word and topic you want to learn">
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </span>
+    <div class="divider"></div>
+
+    <div class="container-chapter">
+        <div class="box">
+            <div class="inner-box">
+                <p class="box-text">0-9</p>
+            </div>
+                <p style="margin-left: 20px;">Beginner I</p>
+                <p style="margin-left: 20px;">Practice Number 0 to 9</p>
+            </div>
+        <div class="box">
+            <div class="inner-box">
+              <p class="box-text">A-Z</p>
+            </div>
+                <p style="margin-left: 20px;">Beginner I</p>
+                <p style="margin-left: 20px;">Practice Alphabet A to Z</p>
+            </div>
+          </div>
+    </div>
+      
+   
+      
+    
+</body>
+</html>

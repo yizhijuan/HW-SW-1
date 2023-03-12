@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bluetooth Data</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <span class="wave"> WAVE</span>
+    <span>
+        <form>
+            <input type="text" id="search-box" placeholder="search the word and topic you want to learn">
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </span>
+    <div class="divider"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <div>
+      <span class="practice_info">Beginner I  Practice Number 0 to 9</span>
+    </div>
+    <div style="display: flex; align-items: center; padding-top: 50px;">
+      <form action="{{ url_for('recog') }}" method="post"  id="Recog-btn">
+        <input type="submit" value="Recognize" class="btn">
+      </form>
+      <form action="{{ url_for('bluetooth_data') }}"  id="Reset-btn">
+        <input type="submit" value="Reset" class="btn">
+      </form>
+    </div>
+    
+      
+    <div class="container">
+        <img class="standard" src="static/six.jpg">
+        <div class="rectangle">
+          <!-- <div id="bluetooth-data">{{ data }}</div> -->
+          {% if data %}
+            <ul id="bluetooth-data">
+              {% for word in data %}
+                <li>{{ word }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>No data yet.</p>
+          {% endif %}
+
+        </div>
+    </div>
+   
+</body>
+</html>
