@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right, #0A2232 200px, white 200px);
+  }
+.wave{
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 40px;
+    position: relative;
+    top: 30px;
+    left: 40px;  
+}
+
+#bluetooth-data{
+  font-weight: 300;
+  font-size: 20px;
+}
+
+#search-box {
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+form {
+    display: flex;
+    align-items: center;
+    margin-left: 230px;
+    margin-top: 0px;
+  }
+
+.btn {
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    background-color: #0A2232;
+    color: #fff;
+}
+
+
+.divider {
+    border-bottom: 1px solid #ccc;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.practice_info{
+    position: absolute;
+    width: 404px;
+    height: 43px;
+    left: 230px;
+    top: 130px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#Recog-btn {
+    margin-left: 720px;
+} 
+#Reset-btn {
+  margin-left: 250px;
+} 
+  
+  
+   .container {
+    position: relative;
+  }
+  
+  .standard {
+    position: absolute;
+    width: 450px;
+    height: auto;
+    left: 230px;
+    top: 20px;
+  }
+  
+  .rectangle {
+    width: 450px;
+    height: 480px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    position: absolute;
+    left: 700px;
+    top: 20px;
+    margin-left: 20px;
+  }
+  
+  .container-chapter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+  }
+
+  .box {
+    position: relative;
+    width: 450px;
+    height: 320px;
+    left: 50px;
+    top: 50px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+  }
+  
+  .inner-box {
+    width: 90%;
+    height: 50%;
+    margin: 5%;
+    background: #e3e3e3;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box-text {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  
+  
+  
+  
+  
