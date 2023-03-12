@@ -1,15 +1,40 @@
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session
 from flask_session import Session
 import serial, bluetooth
 
 app = Flask(__name__)
+data_list = []
+filename = 'Wave_data.txt'
+port = '/dev/cu.usbserial-0001'
+baudrate = 9600
+
 app.secret_key = 'mysecretkey'
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
+
+def read_serial_data(port, baudrate, data_list, filename):
+    ser = serial.Serial(port, baudrate)
+    while True:
+        data = ser.readline().decode()
+        write_to_file(filename, data)
+        data_list.append(data)
+
+def write_to_file(filename, data):
+    with open(filename, 'a') as f:
+        #f.write(data + '\n')
+        f.write(data)
+    
 @app.route("/index")
 def index():
     return render_template("index.html")
+
+@app.route('/start')
+def start():
+    global data_list
+    data_list = []
+    read_serial_data(port, baudrate, data_list, filename)
+    return 'Reading started'
 
 @app.route("/")
 def bluetooth_data():
@@ -30,20 +55,15 @@ number_to_word = {
     '10001': 'number'   
 }
 
+# keep reading, store them to a list or a file.
+# when I click the button, pass the latest word and render the page.
+
 @app.route("/recog", methods=['POST'])
 def recog():
-    #serialPort = '/dev/cu.ESP32-Old'
-    serialPort = '/dev/cu.usbserial-0001'
-    try:
-        ser = serial.Serial(serialPort, 115200)
-    except Exception as e:
-        print(f"Error: {e}")
-        return "Failed to connect to serial port."
-    
-    msg = ser.readline()         # read a byte string
-    print(f"msg: {msg}")
-    msg2 = msg.decode().rstrip()      # decode byte string into Unicode  
-    word = number_to_word.get(msg2, 'invalid')
+    latest = data_list[-1] if data_list else ''
+    latest_msg = latest.rstrip()      # decode byte string into Unicode
+    print(f"latest_msg: {latest_msg}")  
+    word = number_to_word.get(latest_msg, 'invalid')
     # Add the word to a list in the session data
     if 'words' not in session:
         session['words'] = []
